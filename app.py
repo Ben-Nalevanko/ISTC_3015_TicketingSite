@@ -15,5 +15,17 @@ data = [
 def index():
 	return render_template("index.html", data = data)
 
+@app.route("/get_events", methods=["GET"])
+def get_events():
+	return
+
+@app.route("get_map", methods=["GET"]):
+def get_map():
+	return
+
+@app.route("buy_ticket", methods=["POST"])
+def buy_ticket():
+	return
+
 if __name__ == '__main__':
 	app.run(debug=True)
