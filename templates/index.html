@@ -8,9 +8,28 @@
 
 </head>
 <body>
-	<div class="helloworld">
-		<p>Hello World</p>
+	<div class="header">
+		<h1>Title</h1>
+	</div>
+	<div>
+		<table class="eventsTable">				
+			<tr>	
+				<td>Event Name</td>
+				<td>Event Location</td>
+				<td>Buy Tickets</td>
+			</tr>
+			
+			{% for item in data %}
+			<tr>
+				<td>{{item[0]}}</td>
+				<td>{{item[1]}}</td>
+				<td>{{item[2]}}</td>
+				<td><input class='ticketButton' type='submit' value='Map'/></td>
+				<br></br>
+			</tr>
+			{% endfor %}
+		</table>
 	</div>
         <script src="{{ url_for('static', filename='script/script.js') }}"></script>
-
+	
 </body>

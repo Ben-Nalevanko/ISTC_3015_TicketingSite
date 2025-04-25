@@ -1,10 +1,13 @@
-p {
-	color: navy;
-	font-size: 5em;
-}
-
-.helloworld {
+.header {
         color: black;
         font-size: 3em;
 	text-align: center;
+}
+
+.eventsTable {
+	text-align: left;	
+	color: black;
+}
+
+.ticketButton {
 }
