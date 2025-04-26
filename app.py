@@ -1,9 +1,21 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session
+from flask_bcrypt import Bcrypt
 import sqlite3
 import asyncio
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 db = "/some/path/later/"
+app.secret_key = "something to put in an env file"
+bcrypt = Bcrypt(app)
+
+
+users = {
+'admin': bcrypt.generate_password_hash('password123').decode('utf-8')
+}
+#temporary, will come from database once we have it
+events =[]
 
 #temporary until we get a db connection set up
 data = [
@@ -11,21 +23,93 @@ data = [
 	["Event Two Name", "Event Two Locattion"],
 	["Event Three Name", "Event Three Location"]
 	]
+
+users = {
+	'admin': bcrypt.generate_password_hash('password123').decode('utf-8')
+}
+
+# Directory to store uploaded map images
+UPLOAD_FOLDER = 'static/uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+
 @app.route("/")
 def index():
-	return render_template("index.html", data = data)
+	#if "user" in session:
+	#	return render_template("index.html", events=events, data=data)
+	#return redirect(url_for("login"))
+	return render_template("index.html",events=events, data=data)
 
-@app.route("/get_events", methods=["GET"])
-def get_events():
-	return
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	if request.method == 'POST':
+		username = request.form['username']
+		password = request.form['password']
 
-@app.route("get_map", methods=["GET"]):
-def get_map():
-	return
+		# Check if the user exists and password matches
+		if username in users and bcrypt.check_password_hash(users[username], password):
+			session['user'] = username# Store username in session
+			return redirect(url_for('index'))
+		else:
+			return 'Invalid login credentials. Please try again.'
 
-@app.route("buy_ticket", methods=["POST"])
-def buy_ticket():
-	return
+	return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+	session.pop('user', None)
+	return redirect(url_for('login'))
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+	if request.method == 'POST':
+		username = request.form['username']
+		password = request.form['password']
+
+	if username not in users:
+		users[username] = bcrypt.generate_password_hash(password).decode('utf-8')
+		session['user'] = username# Automatically log in after registering
+		return redirect(url_for('index'))
+	else:
+		return 'Username already exists. Please choose a different username.'
+
+	return render_template('register.html')
+
+
+@app.route('/create_event', methods=['GET', 'POST'])
+def create_event():
+	if 'user' not in session:
+		return redirect(url_for('login'))
+
+	if request.method == 'POST':
+		event_name = request.form['event_name']
+		event_location = request.form['event_location']
+		event_date = request.form['event_date']
+
+		# Handle the uploaded map image
+		if 'map_image' in request.files:
+			file = request.files['map_image']
+			if file and allowed_file(file.filename):
+				filename = secure_filename(file.filename)
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+				map_url = url_for('static', filename=f'uploads/{filename}')
+			else:
+				map_url = None
+		else:
+			map_url = None
+
+		# Add the event to the events list
+		events.append({
+			'name': event_name,
+			'location': event_location,
+			'date': event_date,
+			'created_by': session['user'],
+			'map_url': map_url
+		})
+		return redirect(url_for('index'))
+
+	return render_template('create_event.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)
