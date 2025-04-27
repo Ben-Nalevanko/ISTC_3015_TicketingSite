@@ -77,6 +77,16 @@ def register():
 	return render_template('register.html')
 
 
+@app.route("/serve-create-event", methods=["GET"])
+def serve_create_event():
+	print("serve_create_event")
+	return render_template("create_event.html")
+
+@app.route("/purchase_page")
+def purchase_page():
+	print("serve purchase page")
+	return render_template("purchase_page.html")
+
 @app.route('/create_event', methods=['GET', 'POST'])
 def create_event():
 	if 'user' not in session:
@@ -110,6 +120,11 @@ def create_event():
 		return redirect(url_for('index'))
 
 	return render_template('create_event.html')
+
+
+@app.route("/buy_ticket", methods=["POST"])
+def buy_ticket():
+	return render_template("purchase_page.html")
 
 if __name__ == '__main__':
 	app.run(debug=True)
