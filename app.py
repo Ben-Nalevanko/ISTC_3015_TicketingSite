@@ -122,9 +122,12 @@ def create_event():
 	return render_template('create_event.html')
 
 
+
 @app.route("/buy_ticket", methods=["POST"])
 def buy_ticket():
-	return render_template("purchase_page.html")
+	event_name = request.form.get("event_name")
+	print(event_name)
+	return render_template("purchase_page.html", event_name=event_name)
 
 if __name__ == '__main__':
 	app.run(debug=True)

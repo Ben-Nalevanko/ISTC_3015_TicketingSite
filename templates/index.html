@@ -35,9 +35,8 @@
 				<td>{{item[0]}}</td>
 				<td>{{item[1]}}</td>
 				<td>{{item[2]}}</td>
-				<td><input class="ticketButton" onclick="window.location.href='/purchase_page'" type="submit" value="Buy Ticket"/></td>
+				<td><input class="ticketButton" onclick="loadPurchasePage('{{ item[0] }}')" type="submit" value="Buy Ticket"/></td>
 				<td><input class='ticketButton' type='submit' value='Map'/></td>
-				<br></br>
 			</tr>
 			{% endfor %}
 		</table>
