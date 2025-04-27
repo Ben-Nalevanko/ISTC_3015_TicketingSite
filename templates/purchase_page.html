@@ -1,15 +1,25 @@
-<h1 id="purchase-page-name">{{ event_name }}</h1>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Page</title>
+</head>
+<body>
+    <h1 id="purchase-page-name">{{ event_name }}</h1>
 
-<div id="ticketDiv">
-    <table>
-        <tr>
-            <td>Ticket Type</td>
-            <td>"Cost"</td>
-        </tr>
-    </table>
-</div>
-<p id="total_cost" value="0.00">Total: $0.00</p>
-<input type=button onclick="addTicketDiv()" value="Add Ticket">
-<input type=button onclick="removeTicket()" value="Remove Ticket"><br></br>
-<input type=button value="Checkout">
-<input type=button onclick="window.location.href='/'" value="Home">
+    <div id="ticketDiv">
+        <table>
+            <tr>
+                <td>Ticket Type</td>
+                <td>"Cost"</td>
+            </tr>
+        </table>
+    </div>
+    <p id="total_cost" value="0.00">Total: $0.00</p>
+    <input type=button onclick="addTicketDiv()" value="Add Ticket">
+    <input type=button onclick="removeTicket()" value="Remove Ticket"><br></br>
+    <input type=button value="Checkout">
+    <input type=button onclick="window.location.href='/'" value="Home">
+</body>
