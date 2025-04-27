@@ -36,10 +36,9 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
 
 @app.route("/")
 def index():
-	#if "user" in session:
-	#	return render_template("index.html", events=events, data=data)
-	#return redirect(url_for("login"))
-	return render_template("index.html",events=events, data=data)
+	if "user" in session:
+		return render_template("index.html", events=events, data=data)
+	return redirect(url_for("login"))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -66,13 +65,17 @@ def register():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
+		print(username)
+		print(password)
+		print("\nExistingusers: ")
 
-	if username not in users:
-		users[username] = bcrypt.generate_password_hash(password).decode('utf-8')
-		session['user'] = username# Automatically log in after registering
-		return redirect(url_for('index'))
-	else:
-		return 'Username already exists. Please choose a different username.'
+		if username not in users:
+			print("Not in users")
+			users[username] = bcrypt.generate_password_hash(password).decode('utf-8')
+			session['user'] = username# Automatically log in after registering
+			return redirect(url_for('index'))
+		else:
+			return render_template ("register.html", response='Username already exists. Please choose a different username.')
 
 	return render_template('register.html')
 
@@ -84,7 +87,6 @@ def serve_create_event():
 
 @app.route("/purchase_page")
 def purchase_page():
-	print("serve purchase page")
 	return render_template("purchase_page.html")
 
 @app.route('/create_event', methods=['GET', 'POST'])
@@ -120,8 +122,6 @@ def create_event():
 		return redirect(url_for('index'))
 
 	return render_template('create_event.html')
-
-
 
 @app.route("/buy_ticket", methods=["POST"])
 def buy_ticket():

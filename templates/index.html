@@ -14,16 +14,15 @@
 	<div>
 		<table class="optionBar">
 			<tr>
-				<td><input type="button" onclick="loadRegisterPage" value="Register New Event" id="new-event-register"/></td>
+				<td><input type="button" onclick="loadRegisterPage()" value="Register New Event" id="new-event-register"/></td>
 				<td><input type="button" value="Profile"/></td>
-				<td><input type="button" value="logout"/></td>
-				<td><input class="loginButton" type="button" value="Login/Sign up" id="login-button"/></td>
-
+				<td><input type="button" onclick="logout()" value="logout"/></td>
+				<td><input class="loginButton" onclick="loadLoginPage()" type="button" value="Login/Sign up" id="login-button"/></td>
 			</tr>
 		</table>
 	</div>
 	<div>
-		<table class="eventsTable">				
+		<table class="eventsTable">				 
 			<tr>	
 				<td>Event Name</td>
 				<td>Event Location</td>

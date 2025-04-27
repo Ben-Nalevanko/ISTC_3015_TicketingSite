@@ -7,6 +7,7 @@
 </head>
 <body>
     <h2>Register</h2>
+    <p id="register-response"> {{ response }}</p>
     <form action="/register" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -14,7 +15,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <br>
-        <button type="submit">Register</button>
+        <button onclick="registerNewAccount()">Register</button>
     </form>
     <br>
     <a href="/login">Already have an account? Login here</a>

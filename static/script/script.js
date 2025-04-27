@@ -19,6 +19,59 @@ function loadPurchasePage(event_name){
 	})
 }
 
+function loadLoginPage(){
+	console.log("Loading Log in Page...");
+	fetch(host+"/login", {
+		method: "GET",
+	})
+}
+
+function registerNewAccount(){
+	const respondOutput = document.getElementById("register-response");
+	const formData = new FormData();
+	formData.append("username", document.getElementById("username").value);
+	formData.append("password", document.getElementById("password").value);
+
+	fetch(host+"/register", {
+		method: "POST",
+		body: formData,
+	})
+	.then(response => response.text())
+	.then( data => {
+		document.body.innerHTML = data;
+	}
+	)
+	.catch(error => {
+		console.error("Error: ", error);
+	})
+}
+
+function logout(){
+	console.log("Log out function");
+	fetch(host+"/logout")
+	.then(() => {
+		window.location.href = "/login"; // manually redirect
+	})
+	.catch(error => {
+		console.error("Error:", error);
+	});
+}
+
+function login(){
+	var formData = new FormData();
+	formData.append("username", document.getElementById("username").value);
+	formData.append("password", document.getElementById("password").value);
+	fetch(host+"/login", {
+		method: "POST",
+		body: formData,
+	})
+	.then( response => response.text())
+	.catch(error => {
+		console.error("Error:", error);
+	})
+
+}
+
 function addTicketDiv(){
 	const ticketDiv = document.getElementById("ticketDiv");
 
@@ -47,6 +100,7 @@ function addTicketDiv(){
 	ticketDiv.appendChild(newTicket);
 
 }
+
 function removeTicket(){
 	const ticketDiv = document.getElementById("ticketDiv");
 	ticketDiv.removeChild(ticketDiv.lastElementChild);
