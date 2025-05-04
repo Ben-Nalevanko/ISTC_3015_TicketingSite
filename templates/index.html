@@ -25,16 +25,16 @@
 		<table class="eventsTable">				 
 			<tr>	
 				<td>Event Name</td>
-				<td>Event Location</td>
+				<td>Event Date</td>
 				<td>Buy Tickets</td>
 				<td>View Map</td>
 			</tr>
 			
-			{% for item in data %}
+			{% for item in events %}
 			<tr>
-				<td>{{item[0]}}</td>
-				<td>{{item[1]}}</td>
-				<td><input class="ticketButton" onclick="loadPurchasePage('{{ item[0] }}')" type="submit" value="Buy Ticket"/></td>
+				<td>{{item.name}}</td>
+				<td>{{item.date}}</td>
+				<td><input class="ticketButton" onclick="loadPurchasePage('{{ item.name }}')" type="submit" value="Buy Ticket"/></td>
 				<td><input class='ticketButton' type='submit' value='Map'/></td>
 			</tr>
 			{% endfor %}

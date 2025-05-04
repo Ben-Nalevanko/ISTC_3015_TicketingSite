@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_bcrypt import Bcrypt
-import sqlite3
 import asyncio
 import os
 from werkzeug.utils import secure_filename
@@ -18,11 +17,6 @@ users = {
 events =[]
 
 #temporary until we get a db connection set up
-data = [
-	["Event One Name", "Event One Location"],
-	["Event Two Name", "Event Two Locattion"],
-	["Event Three Name", "Event Three Location"]
-	]
 
 
 users = {
@@ -39,7 +33,7 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
 @app.route("/")
 def index():
 	if "user" in session:
-		return render_template("index.html", events=events, data=data)
+		return render_template("index.html", events=events)
 	return redirect(url_for("login"))
 
 @app.route('/login', methods=['GET', 'POST'])
