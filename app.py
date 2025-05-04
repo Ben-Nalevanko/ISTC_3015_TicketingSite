@@ -84,7 +84,7 @@ def register():
 	return render_template('register.html')
 
 
-@app.route("/serve-create-event", methods=["GET"])
+@app.route("/serve_create_event", methods=["GET", "POST"])
 def serve_create_event():
 	print("serve_create_event")
 	return render_template("create_event.html")

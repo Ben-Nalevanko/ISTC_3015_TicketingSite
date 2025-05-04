@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +9,11 @@
 
 </head>
 <body>
-    <h1 id="purchase-page-name">{{ event_name }}</h1>
+    <h1 class="header" id="purchase-page-name">{{ event_name }}</h1>
 
-    <div id="ticketDiv">
+    <div class="optionsBar">
+	<div style="margin:0 auto; text-align: center;">
+	<div id="ticketDiv">
         <table>
             <tr>
                 <td>Ticket Type</td>
@@ -19,8 +22,15 @@
         </table>
     </div>
     <p id="total_cost" value="0.00">Total: $0.00</p>
-    <input type=button onclick="addTicketDiv()" value="Add Ticket">
-    <input type=button onclick="removeTicket()" value="Remove Ticket"><br></br>
-    <input type=button value="Checkout">
-    <input type=button onclick="window.location.href='/'" value="Home">
+</div>
+</div>
+
+    <div class="buttonContainer">
+  <input type="button" class="ticketButton" onclick="addTicketDiv()" value="Add Ticket">
+  <input type="button" class="ticketButton" onclick="removeTicket()" value="Remove Ticket"><br><br>
+  <input type="button" class="ticketButton" value="Checkout"><br>
+</div>
+<input type="button" class="homeButton" onclick="window.location.href='/'" value="Home">
+
+
 </body>

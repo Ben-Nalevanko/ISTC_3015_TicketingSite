@@ -14,10 +14,10 @@
 	<div>
 		<table class="optionBar">
 			<tr>
-				<td><input type="button" onclick="loadRegisterPage()" value="Register New Event" id="new-event-register"/></td>
-				<td><input type="button" value="Profile"/></td>
-				<td><input type="button" onclick="logout()" value="logout"/></td>
-				<td><input class="loginButton" onclick="loadLoginPage()" type="button" value="Login/Sign up" id="login-button"/></td>
+				<td><input type="button" class="loginButton" onclick="loadRegisterPage()" value="Register New Event" id="new-event-register"/></td>
+				<td><input type="button" class="loginButton" value="Profile"/></td>
+				<td><input type="button" class="loginButton" onclick="logout()" value="Logout"/></td>
+				<td><input class="loginButton" onclick="loadLoginPage()" type="button" value="Login/Sign Up" id="login-button"/></td>
 			</tr>
 		</table>
 	</div>
@@ -27,13 +27,13 @@
 				<td>Event Name</td>
 				<td>Event Location</td>
 				<td>Buy Tickets</td>
+				<td>View Map</td>
 			</tr>
 			
 			{% for item in data %}
 			<tr>
 				<td>{{item[0]}}</td>
 				<td>{{item[1]}}</td>
-				<td>{{item[2]}}</td>
 				<td><input class="ticketButton" onclick="loadPurchasePage('{{ item[0] }}')" type="submit" value="Buy Ticket"/></td>
 				<td><input class='ticketButton' type='submit' value='Map'/></td>
 			</tr>

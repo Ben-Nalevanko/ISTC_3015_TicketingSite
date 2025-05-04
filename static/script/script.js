@@ -26,6 +26,23 @@ function loadLoginPage(){
 	})
 }
 
+function loadRegisterPage(){
+    console.log("Loading event registration page");
+    fetch(host + "/serve_create_event")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.body.innerHTML = data;
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
 function registerNewAccount(){
 	const respondOutput = document.getElementById("register-response");
 	const formData = new FormData();

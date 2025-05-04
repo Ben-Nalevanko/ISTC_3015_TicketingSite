@@ -1,9 +1,9 @@
 .header {
-	color: #333;
-	font-size: 2.2em;
-	text-align: center;
-	margin: 30px 0;
-	letter-spacing: 1px;
+  	color: #333;
+  	font-size: 2.2em;
+  	text-align: center;
+  	margin: 30px 0;
+  	letter-spacing: 1px;
 
 	background-color: #e3eaf0;
 	padding: 32px 20px;
@@ -14,117 +14,118 @@
 
 
 .header-wrapper {
-	background-color: #e3eaf0;
-	padding: 32px 20px;
-	border-radius: 10px;
-	box-shadow: 0 4px 12px rgba(176, 190, 197, 0.6);
-	display: inline-block;
-	margin: 30px auto;
-	text-align: center;
+  	background-color: #e3eaf0;
+  	padding: 32px 20px;
+  	border-radius: 10px;
+  	box-shadow: 0 4px 12px rgba(176, 190, 197, 0.6);
+  	display: inline-block;
+  	margin: 30px auto;
+  	text-align: center;
 }
 
 .homeButton {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-	color: black;
-	border: none;
-	padding: 10px 16px;
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: transform 0.2s ease, box-shadow 0.3s ease;
+  	position: absolute;
+  	top: 10px;
+  	left: 10px;
+  	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  	color: black;
+  	border: none;
+  	padding: 10px 16px;
+  	font-size: 14px;
+  	font-weight: bold;
+  	border-radius: 6px;
+  	cursor: pointer;
+  	transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .homeButton:hover {
-	transform: scale(1.05);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .eventsTable, th, td {
 	 width: 80%;
-	border-collapse: collapse;
-	margin: 20px auto;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  	border-collapse: collapse;
+  	margin: 20px auto;
+  	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
-	padding: 12px;
-	height: 60px;
-	text-align: center;
-	color: black;
+  	padding: 12px;
+  	height: 60px;
+  	text-align: center;
+  	color: black;
 	font-weight: bold;
-	border: 1px solid #ddd;
-	background-color: #f9f9f9;
+  	border: 1px solid #ddd;
+  	background-color: #f9f9f9;
 
 	background-color: #b0bec5;
-	color: black;
-	font-weight: bold;
+ 	 color: black;
+  	font-weight: bold;
 }
 
 .ticketButton {
-	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-	color: black;
-	border: none;
-	padding: 12px 24px;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: transform 0.2s ease, box-shadow 0.3s ease;
+ 	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  	color: black;
+  	border: none;
+  	padding: 12px 24px;
+  	font-size: 16px;
+  	font-weight: bold;
+  	border-radius: 6px;
+  	cursor: pointer;
+  	transition: transform 0.2s ease, box-shadow 0.3s ease;
 	margin: 10px;
 }
 
 .ticketButton:hover {
-	transform: scale(1.05);
-	box-shadow:3px 3px 5px red,
-	-3px -3px 5px blue,
-	3px -3px 5px green,
-	-3px 3px 5px purple;
+  	transform: scale(1.05);
+  	box-shadow:  3px 3px 5px red,
+    	-3px -3px 5px blue,
+    	3px -3px 5px green,
+    	-3px 3px 5px purple;
 }
 
 .buttonContainer {
-	text-align: center;
-	margin-top: 20px;
+  	text-align: center;
+  	margin-top: 20px;
 }
 
-.optionsBar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #eee;
-	padding: 6px 16px; 
-	border-bottom: 1px solid #ccc;
-	width: 100%; 
-	box-sizing: border-box;
+optionsBar {
+  	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+  	background-color: #eee;
+  	padding: 6px 16px;           
+  	border-bottom: 1px solid #ccc;
+  	width: 100%;                 
+  	box-sizing: border-box;
 
-	box-sizing: border-box;
-	font-weight: bold;
-	color: #333;
-	font-size: 16px; 
+box-sizing: border-box;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;   
 }
 
 .spacer {
-	flex: 1; /* takes up equal space on both sides */
+  flex: 1; /* takes up equal space on both sides */
 }
 
 .centeredContent {
-	flex: 0 0 auto; /* content keeps its size */
-	text-align: center;
+  flex: 0 0 auto; /* content keeps its size */
+  text-align: center;
 }
 
 .loginButton {
-	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-	color: black;
-	border: none;
-	padding: 12px 24px;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: transform 0.2s ease, box-shadow 0.3s ease;
+ 	background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  	color: black;
+  	border: none;
+  	padding: 12px 24px;
+  	font-size: 16px;
+  	font-weight: bold;
+  	border-radius: 6px;
+  	cursor: pointer;
+  	transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .loginButton:hover {
-	transform: scale(1.05);  
+	transform: scale(1.05);
+  	
 }
