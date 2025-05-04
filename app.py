@@ -24,9 +24,11 @@ data = [
 	["Event Three Name", "Event Three Location"]
 	]
 
+
 users = {
 	'admin': bcrypt.generate_password_hash('password123').decode('utf-8')
 }
+
 
 # Directory to store uploaded map images
 UPLOAD_FOLDER = 'static/uploads/'
@@ -45,6 +47,8 @@ def login():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
+
+		#users = cursor.execute("SELECT CustomerID FROM tblCustomer;")
 
 		# Check if the user exists and password matches
 		if username in users and bcrypt.check_password_hash(users[username], password):

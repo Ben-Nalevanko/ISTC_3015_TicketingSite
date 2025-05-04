@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+
+</head>
+<body>
+    <h1 class="header" id="purchase-page-name">{{ event_name }}</h1>
+
+    <div class="optionsBar">
+	<div style="margin:0 auto; text-align: center;">
+	<div id="ticketDiv">
+        <table>
+            <tr>
+                <td>Ticket Type</td>
+                <td>"Cost"</td>
+            </tr>
+        </table>
+    </div>
+    <p id="total_cost" value="0.00">Total: $0.00</p>
+</div>
+</div>
+
+    <div class="buttonContainer">
+  <input type="button" class="ticketButton" onclick="addTicketDiv()" value="Add Ticket">
+  <input type="button" class="ticketButton" onclick="removeTicket()" value="Remove Ticket"><br><br>
+  <input type="button" class="ticketButton" value="Checkout"><br>
+</div>
+<input type="button" class="homeButton" onclick="window.location.href='/'" value="Home">
+
+
+</body>
